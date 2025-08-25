@@ -16,7 +16,7 @@ body {
 }
 
 .site { display: grid; grid-template-rows: auto 1fr auto; min-height: 100%; }
-main { width: min(100%, var(--maxw)); margin: 0 auto; padding: 6rem 1.2rem 4rem; }
+main { width: min(100%, var(--maxw)); margin: 0 auto; padding: 2rem 1.2rem 4rem; }
 
 .nav {
   position: sticky; top: 0; backdrop-filter: blur(6px);
@@ -26,7 +26,7 @@ main { width: min(100%, var(--maxw)); margin: 0 auto; padding: 6rem 1.2rem 4rem;
 .nav a { color: var(--fg); text-decoration: none; margin-left: 1rem; }
 .brand { font-weight: 700; letter-spacing: .02em; }
 
-.home .hero-title { font-size: clamp(2.8rem, 7vw, 6rem); line-height: .95; margin: 2rem 0 .5rem; }
+.home .hero-title { font-size: clamp(2.8rem, 4vw, 6rem); line-height: .95; margin: 2rem 0 .5rem; }
 .thin { font-weight: 300; color: var(--muted); }
 .hero-sub { color: var(--muted); margin-bottom: 1.5rem; }
 .btn {
@@ -72,6 +72,71 @@ main { width: min(100%, var(--maxw)); margin: 0 auto; padding: 6rem 1.2rem 4rem;
   width:100%; height:auto; border-radius: var(--radius); margin: 0 0 var(--gap);
 }
 .project-nav{ display:flex; justify-content:space-between; gap:12px; margin-top:1rem; }
+/* Fondo SOLO en Home, cubriendo Nav + Main + Footer */
+.site.is-worñ {
+  position: relative;
+}
 
+.site.is-work::before {
+  content: "";
+  position: fixed;      /* cubre toda la ventana mientras scrolleás */
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image: image-set(
+    url("/src/assets/bg/bg.jpeg") type("image/avif"),
+    url("/src/assets/bg/bg.jpeg") type("image/webp"),
+    url("/src/assets/bg/bg.jpeg") type("image/jpeg")
+  );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Overlay sutil para legibilidad */
+  box-shadow: inset 0 0 0 9999px rgba(0,0,0,.12);
+}
+
+/* Aseguramos que el header y footer no tapen el fondo con un color sólido */
+.nav {
+  backdrop-filter: blur(6px);
+  background: color-mix(in oklab, white 82%, transparent);
+  border-bottom: 1px solid #eee;
+}
+
+footer {
+  background: color-mix(in oklab, white 85%, transparent);
+  border-top: 1px solid #eee;
+}
+
+/* (Opcional) un pelín de realce en el hero del Home */
+.home .hero-title,
+.home .hero-sub {
+  text-shadow: 0 2px 20px rgba(0,0,0,.25);
+}
+
+/* En móviles, bajá el oscurecido si querés */
+@media (max-width: 768px){
+  .site.is-work::before { box-shadow: inset 0 0 0 9999px rgba(0,0,0,.08); }
+}
+
+@media (max-width: 768px){
+  .project{ 
+    display: block;      /* o: display:flex; flex-direction:column; */
+  }
+  .project-aside{
+    position: static;    /* desactiva el sticky */
+    top: auto;
+    margin-bottom: 1rem; /* separa del contenido */
+  }
+  .project-body{
+    width: 100%;
+  }
+  .project-body img{
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
 
 footer { border-top: 1px solid #eee; padding: 1.2rem; text-align: center; color: var(--muted); }

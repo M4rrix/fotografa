@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <section className="home">
       <motion.h1 initial={{opacity:0, y:16}} animate={{opacity:1, y:0}} transition={{duration:.6}} className="hero-title">
-        Fotografía editorial <span className="thin">minimalista</span>
+        dabhya <span className="thin"></span>
       </motion.h1>
 
       <p className="hero-sub">Moda, retrato y campañas.</p>
@@ -23,7 +23,7 @@ export default function Home() {
               loading="lazy"
               width="1600"
               height="1000"
-              onError={(e)=>{ e.currentTarget.src=`https://picsum.photos/seed/${p.slug}/1600/1000.webp`; }}
+              onError={(e)=>{ e.currentTarget.src=`/src/assets/bestia/952bc0231000219.6880fc25ddff3.webp`; }}
             />
             <div className="card-caption">{p.title}</div>
           </Link>
