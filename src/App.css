@@ -85,9 +85,9 @@ main { width: min(100%, var(--maxw)); margin: 0 auto; padding: 2rem 1.2rem 4rem;
   pointer-events: none;
 
   background-image: image-set(
-    url("/src/assets/bg/bg.jpeg") type("image/avif"),
-    url("/src/assets/bg/bg.jpeg") type("image/webp"),
-    url("/src/assets/bg/bg.jpeg") type("image/jpeg")
+    url("/assets/bg/bg.jpeg") type("image/avif"),
+    url("/assets/bg/bg.jpeg") type("image/webp"),
+    url("/assets/bg/bg.jpeg") type("image/jpeg")
   );
   background-size: cover;
   background-position: center;

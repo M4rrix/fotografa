@@ -15,7 +15,7 @@ export default function Work() {
                   alt={p.title}
                   loading="lazy"
                   width="1600" height="1000"
-                  onError={(e)=>{ e.currentTarget.src=`/src/assets/bestia/952bc0231000219.6880fc25ddff3.webp`; }}
+                  onError={(e)=>{ e.currentTarget.src=`/assets/bestia/952bc0231000219.6880fc25ddff3.webp`; }}
                 />
               </div>
               <div className="meta">
