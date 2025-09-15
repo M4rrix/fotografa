@@ -2,9 +2,10 @@
 import { Link } from "react-router-dom";
 
 const slides = [
-  "/assets/bg/bg1.webp", // o .jpg
-  "/assets/bg/bg2.webp",
-  "/assets/bg/bg3.webp",
+  "/assets/portada/port1.jpg", // o .jpg
+  "/assets/portada/port2.jpg",
+  "/assets/portada/port3.jpg",
+  "/assets/portada/port4.jpg"
 ];
 
 export default function Splash() {

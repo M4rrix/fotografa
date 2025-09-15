@@ -139,4 +139,74 @@ footer {
   }
 }
 
+
+
+/* Carrusel mínimo, táctil y con scroll-snap */
+.carousel { position: relative; }
+
+.carousel-track{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: var(--gap);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;           /* Firefox */
+}
+.carousel-track::-webkit-scrollbar{ display: none; }  /* WebKit */
+
+.carousel-slide{ margin: 0; scroll-snap-align: center; }
+.carousel-slide img{
+  width: 100%; height: auto; display: block;
+  border-radius: var(--radius);
+}
+
+/* UI minimal (flechas + contador) */
+/* Flechas laterales + contador centrado */
+.carousel { position: relative; }
+
+.carousel-ui{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* flechas a izquierda/derecha */
+  padding: 0 10px;
+  pointer-events: none; /* evita bloquear el swipe; reactivamos en botones */
+}
+
+.carousel-ui .nav{
+  pointer-events: auto;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: .55rem .75rem;
+  background: color-mix(in oklab, #fff 78%, transparent);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  user-select: none;
+}
+
+.carousel-ui .counter{
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  font-size: .9rem;
+  color: var(--muted);
+  padding: .3rem .6rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, #fff 75%, transparent);
+}
+
+
+
+
+/* Mobile: tu layout ya apila; el carrusel funciona con swipe */
+@media (max-width: 768px){
+  .project{ display: block; }           /* ya lo tenés */
+  .project-aside{ position: static; margin-bottom: 1rem; }
+}
+
+
 footer { border-top: 1px solid #eee; padding: 1.2rem; text-align: center; color: var(--muted); }

@@ -1,9 +1,10 @@
 import { useParams, Link } from "react-router-dom";
 import { projects } from "../data/projects";
+import Carousel from "../components/Carrousel";
 
 export default function Project() {
   const { slug } = useParams();
-  const i = projects.findIndex(p => p.slug === slug);
+  const i = projects.findIndex((p) => p.slug === slug);
   const project = projects[i] ?? projects[0];
 
   return (
@@ -15,9 +16,7 @@ export default function Project() {
       </aside>
 
       <div className="project-body">
-        {project.images.map((src, idx) => (
-          <img key={idx} src={src} alt={`${project.title} ${idx+1}`} loading="lazy" />
-        ))}
+        <Carousel images={project.images} altBase={project.title} />
 
         <nav className="project-nav">
           {projects[i-1] && <Link to={`/work/${projects[i-1].slug}`} className="btn">← {projects[i-1].title}</Link>}

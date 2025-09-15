@@ -10,7 +10,7 @@
   position: absolute; inset: 0;
   background-size: cover; background-position: center; background-repeat: no-repeat;
   opacity: 0;
-  animation: fadeCycle 5s infinite; /* 3 imgs x 3s */
+  animation: fadeCycle 5s infinite; /* 3 imgs x 3s */ /*antes estaba en  9s*/
   will-change: opacity;
 }
 
