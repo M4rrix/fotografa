@@ -1,0 +1,63 @@
+/* experimental.css */
+:root{ --navh: 64px; }
+
+.experimental-page{
+  max-width: 1400px;         /* o el ancho que uses en el sitio */
+  margin: 0 auto;
+  padding-inline: clamp(16px, 4vw, 64px);
+}
+
+/* Bloques a altura de viewport */
+.exp-vertical
+{ height: calc(100svh - var(--navh)); }
+@supports not (height: 100svh){
+  .exp-vertical, .exp-horizontal{ height: calc(100vh - var(--navh)); }
+}
+
+/* VERTICAL centrada con aire */
+.exp-vertical
+{ 
+    /*display: grid; */
+    place-items: center; 
+}
+.exp-vertical img{
+  width: auto; height: auto;
+  max-width: min(56vw, 720px);    /* ajusta 56vw para +/− aire lateral */
+  max-height: calc(100svh - var(--navh) - 80px); /* evita tapar el nav */
+  display: block;
+}
+
+/* Desktop: horizontal a pantalla (look editorial) */
+.exp-horizontal{
+  display: grid;
+  place-items: stretch;         /* la imagen ocupa el bloque */
+
+}
+@supports not (height: 100svh){
+  .exp-horizontal{ height: calc(100vh - var(--navh)); }
+}
+.exp-horizontal img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* llena el cuadro; recorta si hace falta */
+  display: block;
+}
+
+/* Mobile */
+@media (max-width: 768px){
+  :root{ --navh: 56px; }
+  .exp-vertical img{ max-width: min(88vw, 520px); max-height: calc(100svh - var(--navh) - 64px); }
+}
+
+/* Mobile: tratar la horizontal como CUADRADA -> verla completa y centrada */
+@media (max-width: 768px){
+  .exp-horizontal{
+    place-items: center;        /* centramos el contenido */
+  }
+  .exp-horizontal img{
+    object-fit: contain;        /* muestra la foto entera (ideal p/ cuadrada) */
+    width: auto;
+    height: 100%;
+    max-width: 100svw;          /* no se sale del viewport */
+  }
+}
