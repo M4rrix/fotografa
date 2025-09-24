@@ -4,11 +4,15 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Work from "./pages/Work";
 import Project from "./pages/Project";
-import About from "./pages/About";
+import Conciertos from "./pages/Conciertos";
+import Concierto from "./pages/Concierto";
+import Retratos from "./pages/Retratos";
+import Experimental from "./pages/Experimental";
 import Contact from "./pages/Contact";
 import Splash from "./pages/Splash";
 import "./App.css";
-import "./styles/Splash.css"
+import 'photoswipe/style.css';
+import "./styles/Splash.css";
 
 function Layout() {
   const { pathname } = useLocation();
@@ -26,7 +30,10 @@ function Layout() {
           <Route path="/home" element={<Home />} />    {/* tu Home actual si lo querés conservar */}
           <Route path="/work" element={<Work />} />
           <Route path="/work/:slug" element={<Project />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/conciertos" element={<Conciertos />} />
+          <Route path="/conciertos/:slug" element={<Concierto />} />
+          <Route path="/retratos" element={<Retratos />} />
+          <Route path="/experimental" element={<Experimental />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>

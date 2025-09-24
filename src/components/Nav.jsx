@@ -6,7 +6,9 @@ export default function Nav() {
       <Link to="/" className="brand">dabhya</Link>
       <nav>
         <NavLink to="/work">Work</NavLink>
-        <NavLink to="/about">About</NavLink>
+        <NavLink to="/conciertos">Conciertos</NavLink>
+        <NavLink to="/retratos">Retratos</NavLink>
+        <NavLink to="/experimental">Experimental</NavLink>
         <NavLink to="/contact">Contact</NavLink>
       </nav>
     </header>

@@ -68,82 +68,50 @@ main { width: min(100%, var(--maxw)); margin: 0 auto; padding: 2rem 1.2rem 4rem;
 .tags{ display:flex; gap:.5rem; list-style:none; padding:0; margin: .6rem 0 0; }
 .tags li{ font-size:.85rem; color:var(--muted); border:1px solid #eee; padding:.2rem .5rem; border-radius:999px; }
 
-.project-body img{
-  width:100%; height:auto; border-radius: var(--radius); margin: 0 0 var(--gap);
-}
+.project-body img{ width:100%; height:auto; border-radius: var(--radius); margin: 0 0 var(--gap); }
 .project-nav{ display:flex; justify-content:space-between; gap:12px; margin-top:1rem; }
-/* Fondo SOLO en Home, cubriendo Nav + Main + Footer */
-.site.is-worñ {
-  position: relative;
-}
 
+/* Fondo SOLO en Work (Nav + Main + Footer) */
+.site.is-work { position: relative; }      /* <- corregido: antes decía is-worñ */
 .site.is-work::before {
   content: "";
-  position: fixed;      /* cubre toda la ventana mientras scrolleás */
+  position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-
   background-image: image-set(
-    url("/assets/bg/bg.jpeg") type("image/avif"),
-    url("/assets/bg/bg.jpeg") type("image/webp"),
     url("/assets/bg/bg.jpeg") type("image/jpeg")
   );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  /* Overlay sutil para legibilidad */
   box-shadow: inset 0 0 0 9999px rgba(0,0,0,.12);
 }
 
-/* Aseguramos que el header y footer no tapen el fondo con un color sólido */
+/* Nav y footer translúcidos */
 .nav {
   backdrop-filter: blur(6px);
   background: color-mix(in oklab, white 82%, transparent);
   border-bottom: 1px solid #eee;
 }
-
 footer {
   background: color-mix(in oklab, white 85%, transparent);
   border-top: 1px solid #eee;
 }
 
-/* (Opcional) un pelín de realce en el hero del Home */
-.home .hero-title,
-.home .hero-sub {
-  text-shadow: 0 2px 20px rgba(0,0,0,.25);
-}
+.home .hero-title, .home .hero-sub { text-shadow: 0 2px 20px rgba(0,0,0,.25); }
 
-/* En móviles, bajá el oscurecido si querés */
 @media (max-width: 768px){
   .site.is-work::before { box-shadow: inset 0 0 0 9999px rgba(0,0,0,.08); }
+
+  /* Project en mobile: sin grid ni sticky */
+  .project{ display:block; }
+  .project-aside{ position: static; top:auto; margin-bottom: 1rem; }
+  .project-body img{ width:100%; height:auto; display:block; }
 }
 
-@media (max-width: 768px){
-  .project{ 
-    display: block;      /* o: display:flex; flex-direction:column; */
-  }
-  .project-aside{
-    position: static;    /* desactiva el sticky */
-    top: auto;
-    margin-bottom: 1rem; /* separa del contenido */
-  }
-  .project-body{
-    width: 100%;
-  }
-  .project-body img{
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-}
-
-
-
-/* Carrusel mínimo, táctil y con scroll-snap */
+/* Carrusel */
 .carousel { position: relative; }
-
 .carousel-track{
   display: grid;
   grid-auto-flow: column;
@@ -152,54 +120,35 @@ footer {
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
-  scrollbar-width: none;           /* Firefox */
+  scrollbar-width: none;
 }
-.carousel-track::-webkit-scrollbar{ display: none; }  /* WebKit */
+.carousel-track::-webkit-scrollbar{ display: none; }
+.carousel-slide{ margin:0; scroll-snap-align: center; }
+.carousel-slide a{ display:block; border-radius: var(--radius); overflow:hidden; } /* nuevo */
+.carousel-slide img{ width:100%; height:auto; display:block; }
 
-.carousel-slide{ margin: 0; scroll-snap-align: center; }
-.carousel-slide img{
-  width: 100%; height: auto; display: block;
-  border-radius: var(--radius);
-}
-
-/* UI minimal (flechas + contador) */
-/* Flechas laterales + contador centrado */
-.carousel { position: relative; }
-
+/* Flechas laterales + contador */
 .carousel-ui{
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* flechas a izquierda/derecha */
-  padding: 0 10px;
-  pointer-events: none; /* evita bloquear el swipe; reactivamos en botones */
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 10px; pointer-events: none;
 }
-
 .carousel-ui .nav{
-  pointer-events: auto;
-  border: 1px solid #ddd;
-  border-radius: 999px;
-  padding: .55rem .75rem;
-  background: color-mix(in oklab, #fff 78%, transparent);
-  backdrop-filter: blur(6px);
-  cursor: pointer;
-  user-select: none;
+  pointer-events: auto; border:1px solid #ddd; border-radius:999px;
+  padding:.55rem .75rem; background: color-mix(in oklab, #fff 78%, transparent);
+  backdrop-filter: blur(6px); cursor:pointer; user-select:none;
 }
-
 .carousel-ui .counter{
-  position: absolute;
-  left: 50%;
-  bottom: 12px;
-  transform: translateX(-50%);
-  font-size: .9rem;
-  color: var(--muted);
-  padding: .3rem .6rem;
-  border-radius: 999px;
+  position:absolute; left:50%; bottom:12px; transform:translateX(-50%);
+  font-size:.9rem; color:var(--muted); padding:.3rem .6rem; border-radius:999px;
   background: color-mix(in oklab, #fff 75%, transparent);
 }
+@media (max-width:768px){ .carousel-ui .nav{ display:none; } }
 
-
+/* Opcional: esconder flechas en mobile y dejar solo swipe 
+@media (max-width: 768px){
+  .carousel-ui .nav{ display: none; }
+} */
 
 
 /* Mobile: tu layout ya apila; el carrusel funciona con swipe */
@@ -208,5 +157,15 @@ footer {
   .project-aside{ position: static; margin-bottom: 1rem; }
 }
 
+.carousel-slide a {
+  display: block;              /* el link ocupa el slide completo */
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
 footer { border-top: 1px solid #eee; padding: 1.2rem; text-align: center; color: var(--muted); }
