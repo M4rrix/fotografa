@@ -64,9 +64,8 @@ a{
   color: var(--fg, #0a0a0a);   /* negro del sistema o fallback */
   text-decoration: none;       /* sin subrayado por defecto */
 }
-a:visited{
-  color: var(--fg, #0a0a0a);   /* sigue negro al visitarlo */
-}
+
+
 a:hover{
   text-decoration: underline;  /* aparece la línea en hover */
   text-underline-offset: 2px;  /* separada del texto */
