@@ -1,21 +1,25 @@
 import { Link } from "react-router-dom";
-import { projects } from "../data/projects";
+import { retrato } from "../data/retrato";
+
 
 export default function Retratos() {
   return (
     <section>
       <h1 className="page-title">Retratos</h1>
       <ul className="work-grid">
-        {projects.map(p => (
+        {retrato.map((p) => (
           <li key={p.slug} className="work-item">
-            <Link to={`/work/${p.slug}`} className="card">
+            <Link to={`/retratos/${p.slug}`} className="card">
               <div className="ratio">
                 <img
                   src={p.cover}
                   alt={p.title}
                   loading="lazy"
-                  width="1600" height="1000"
-                  onError={(e)=>{ e.currentTarget.src=`/assets/bestia/952bc0231000219.6880fc25ddff3.webp`; }}
+                  width="1600"
+                  height="1000"
+                  onError={(e) => {
+                    e.currentTarget.src = `https://picsum.photos/seed/${p.slug}/1600/1000.jpg`;
+                  }}
                 />
               </div>
               <div className="meta">

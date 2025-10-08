@@ -7,6 +7,7 @@ import Project from "./pages/Project";
 import Conciertos from "./pages/Conciertos";
 import Concierto from "./pages/Concierto";
 import Retratos from "./pages/Retratos";
+import RetratoProyecto from "./pages/RetratoProyecto"
 import Experimental from "./pages/Experimental";
 import Contact from "./pages/Contact";
 import Splash from "./pages/Splash";
@@ -33,6 +34,7 @@ function Layout() {
           <Route path="/conciertos" element={<Conciertos />} />
           <Route path="/conciertos/:slug" element={<Concierto />} />
           <Route path="/retratos" element={<Retratos />} />
+          <Route path="/retratos/:slug" element={<RetratoProyecto />} />
           <Route path="/experimental" element={<Experimental />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

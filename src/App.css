@@ -118,13 +118,49 @@ a:focus-visible{
 .muted{ color:var(--muted); }
 
 /* Página de proyecto tipo editorial */
-.project{ display:grid; grid-template-columns: 320px 1fr; gap: 24px; align-items:start; }
-.project-aside{ position:sticky; top:84px; }
-.project-aside h1{ font-size: clamp(1.6rem, 3vw, 2.6rem); margin:.2rem 0 .5rem }
-.tags{ display:flex; gap:.5rem; list-style:none; padding:0; margin: .6rem 0 0; }
+.project { 
+  display:grid; 
+  grid-template-columns: 320px 1fr; 
+  gap: 24px; 
+  align-items:start; 
+}
+.project-aside { 
+  position:sticky; 
+  top:84px; 
+}
+
+.project-aside h1 { 
+  font-size: clamp(1.6rem, 3vw, 2.6rem); 
+  margin:.2rem 0 .5rem 
+}
+.tags { display:flex; gap:.5rem; list-style:none; padding:0; margin: .6rem 0 0; }
 .tags li{ font-size:.85rem; color:var(--muted); border:1px solid #eee; padding:.2rem .5rem; border-radius:999px; }
 
-.project-body img{ width:100%; height:auto;  margin: 0 0 var(--gap); }
+.project-body > img{
+  width:100%;
+  height:auto;
+  margin: 0 0 var(--gap);
+  display:block;
+}
+
+.project .carousel{
+  height: calc(100svh - 140px);
+}
+@supports not (height: 100svh){
+  .project .carousel{ height: calc(100vh - 140px); }
+}
+
+/* El track y cada slide ocupan ese alto y centran el contenido */
+.project .carousel-track{
+  height: 100%;
+  align-items: center;
+}
+.carousel-slide{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .project-nav{ display:flex; justify-content:space-between; gap:12px; margin-top:1rem; }
 
 /* Fondo SOLO en Work (Nav + Main + Footer) */
@@ -179,9 +215,13 @@ footer {
   scrollbar-width: none;
 }
 .carousel-track::-webkit-scrollbar{ display: none; }
-.carousel-slide{ margin:0; scroll-snap-align: center; }
-.carousel-slide a{ display:block;  overflow:hidden; } /* nuevo */
-.carousel-slide img{ width:100%; height:auto; display:block; }
+
+.carousel-slide{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* Flechas laterales + contador */
 .carousel-ui{
@@ -218,9 +258,14 @@ footer {
   
   overflow: hidden;
 }
-.carousel-slide img {
-  width: 100%;
+/* Imágenes dentro del carrusel: sin márgenes heredados y “contain” */
+.carousel-slide img{
+  margin: 0 !important;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
   height: auto;
+  object-fit: cover;   /* horizontales también entran, sin recorte */
   display: block;
 }
 
