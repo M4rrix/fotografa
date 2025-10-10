@@ -206,9 +206,9 @@ footer {
 .carousel { position: relative; }
 .carousel-track{
   display: grid;
-  grid-auto-flow: column;
+ /* grid-auto-flow: column;*/
   grid-auto-columns: 100%;
-  gap: var(--gap);
+  gap: var(--gap); 
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
@@ -268,5 +268,6 @@ footer {
   object-fit: cover;   /* horizontales también entran, sin recorte */
   display: block;
 }
+
 
 footer { border-top: 1px solid #eee; padding: 1.2rem; text-align: center; color: var(--muted); }
