@@ -170,6 +170,9 @@ a:focus-visible{
   position: fixed;
   inset: 0;
   z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   pointer-events: none;
   background-image: image-set(
     url("/assets/bg/bg.jpeg") type("image/jpeg")
@@ -206,7 +209,7 @@ footer {
 .carousel { position: relative; }
 .carousel-track{
   display: grid;
- /* grid-auto-flow: column;*/
+ /* grid-auto-flow: column;*/ 
   grid-auto-columns: 100%;
   gap: var(--gap); 
   overflow-x: auto;
@@ -271,3 +274,30 @@ footer {
 
 
 footer { border-top: 1px solid #eee; padding: 1.2rem; text-align: center; color: var(--muted); }
+
+/* iOS no auto-escala textos */
+html { -webkit-text-size-adjust: 100%; }
+
+/* Medios seguros */
+img, video, canvas, svg { max-width: 100%; height: auto; }
+
+/* Seguridad extra: nada más ancho que la pantalla */
+html, body { width: 100%; overflow-x: hidden; }
+
+/* ===== NAV responsive (mobile) ===== */
+@media (max-width: 560px){
+  .nav{
+    flex-wrap: wrap;           /* permite saltar de línea */
+    padding: .75rem .9rem;
+  }
+
+  /* la marca queda a la izquierda y el resto puede bajar de línea */
+  .brand{ margin-right: auto; }
+
+  /* Espaciado entre títulos (enlaces) del menú */
+  .nav a{
+    margin: 0 .75rem .35rem 0; /* derecha + abajo = “aire” entre links */
+    font-size: clamp(13px, 3.6vw, 16px);
+    white-space: nowrap;       /* que cada link no se parta */
+  }
+}

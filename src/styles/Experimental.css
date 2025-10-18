@@ -61,3 +61,38 @@
     max-width: 100svw;          /* no se sale del viewport */
   }
 }
+
+/* ====== Ajustes globales mínimos para esta página ====== */
+
+/* Evitar barras horizontales por si algo se pasa en ancho */
+.experimental-page { overflow-x: hidden; }
+
+/* NAV responsive (si esta página carga después del CSS global, estas
+   reglas aplican; si ya lo tenés en App.css, no pasa nada por repetir) */
+@media (max-width: 560px){
+  .nav{
+    flex-wrap: wrap;           /* permite saltar de línea */
+    padding: .75rem .9rem;
+  }
+  .brand{ margin-right: auto; }
+
+  /* Espaciado entre títulos (enlaces) del menú */
+  .nav a{
+    margin: 0 .75rem .35rem 0; /* derecha + abajo = aire entre links */
+    font-size: clamp(13px, 3.6vw, 16px);
+    white-space: nowrap;
+  }
+}
+
+/* ====== Fallbacks / detalles para imágenes en experimental ====== */
+
+/* Si el navegador no soporta svw, usa vw como respaldo */
+@supports not (width: 100svw){
+  .exp-horizontal img{ max-width: 100vw; }
+}
+
+/* También evita que alguna imagen “empuje” el ancho en casos límite */
+.exp-vertical img,
+.exp-horizontal img{
+  max-width: 100%;
+}
