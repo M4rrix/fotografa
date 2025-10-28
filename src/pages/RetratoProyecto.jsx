@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { retrato } from "../data/retrato";
-import Carousel from "../components/Carrousel"; 
+import GalleryMasonry from "../components/GalleryMasonry"; // tu componente de grilla
 
 export default function Concierto() {
   const { slug } = useParams();
@@ -17,19 +17,21 @@ export default function Concierto() {
   }
 
   return (
-    <article className="project">
-      <aside className="project-aside">
-        <h1>{c.title}</h1>
-        <p className="muted">{c.city} · {c.year}</p>
-      </aside>
+    <article className="project is-gallery">
+      {/* Encabezado arriba y centrado */}
+          <header className="project-header">
+            <h1 className="project-title">{c.title}</h1>
+            <p className="muted">{c.city} · {c.year}</p>
+          </header>
 
-      <div className="project-body">
+
+     
         {/* fullscreen: alto de viewport; fit="contain": que entre completa sin recorte */}
-        <Carousel images={c.images} altBase={c.title} fullscreen fit="contain" />
+        <GalleryMasonry images={c.images} altBase={c.title} />
         <nav className="project-nav">
           <Link to="/retratos" className="btn">← Volver</Link>
         </nav>
-      </div>
+     
     </article>
   );
 }

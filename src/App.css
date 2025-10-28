@@ -301,3 +301,89 @@ html, body { width: 100%; overflow-x: hidden; }
     white-space: nowrap;       /* que cada link no se parta */
   }
 }
+
+/* ===== Galería tipo masonry (scroll vertical) ===== */
+.gallery-masonry{
+  column-gap: var(--gap);
+  /* cantidad de columnas según ancho */
+  column-count: 1;
+}
+
+@media (min-width: 640px){
+  .gallery-masonry{ column-count: 2; }
+}
+@media (min-width: 980px){
+  .gallery-masonry{ column-count: 3; }
+}
+@media (min-width: 1280px){
+  .gallery-masonry{ column-count: 4; } /* opcional */
+}
+
+.gm-item{
+  break-inside: avoid;      /* que las fotos no se corten entre columnas */
+  margin: 0 0 var(--gap);   /* separación vertical */
+}
+
+.gm-item img{
+  width: 100%;
+  height: auto;
+  display: block;
+ 
+}
+
+/* Vista de galería: usar todo el ancho del main (sin aside) */
+/* ==== Galería "full-bleed" (a ancho de ventana) ==== */
+/* Hace que solo la grilla se salga del max-width de <main>,
+   manteniendo el título centrado dentro del layout normal */
+.project.is-gallery .gallery-wrap{
+  width: 100vw;                          /* ocupar ancho de viewport */
+  margin-left: calc(50% - 50vw);         /* hack para romper el contenedor centrado */
+  padding-inline: clamp(12px, 4vw, 36px);/* respiración lateral segura */
+}
+
+/* 3 columnas en desktop (con masonry nativo por columnas) */
+.project.is-gallery .gallery-masonry{
+  column-count: 3;                        /* -> tres columnas */
+  column-gap: var(--gap);
+}
+
+/* Cada item evita cortarse entre columnas */
+.project.is-gallery .gallery-item{
+  break-inside: avoid;
+  margin-bottom: var(--gap);
+}
+.project.is-gallery .gallery-item img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;                    /* opcional */
+}
+
+/* Responsivo: 2 cols en tablet, 1 col en mobile */
+@media (max-width: 1100px){
+  .project.is-gallery .gallery-masonry{ column-count: 2; }
+}
+@media (max-width: 600px){
+  .project.is-gallery .gallery-masonry{ column-count: 1; }
+  .project.is-gallery .gallery-wrap{ padding-inline: 16px; }
+}
+
+/* Título centrado por encima de la grilla */
+.project.is-gallery .project-header{
+  text-align: center;
+  margin: 0 0 1.25rem;
+}
+.project.is-gallery .project-title{
+  margin: 0 0 .25rem;
+  font-size: clamp(1.8rem, 3.8vw, 3rem);
+  line-height: 1.05;
+}
+
+/* Que esta página no use la sidebar */
+.project.is-gallery{
+  grid-template-columns: 1fr;
+}
+.project.is-gallery .project-aside{ display: none; }
+
+
+
