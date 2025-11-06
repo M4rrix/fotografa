@@ -163,8 +163,51 @@ a:focus-visible{
 }
 .project-nav{ display:flex; justify-content:space-between; gap:12px; margin-top:1rem; }
 
-/* Fondo SOLO en Work (Nav + Main + Footer) */
-.site.is-work { position: relative; }      /* <- corregido: antes decía is-worñ */
+/* ===== Work: fondos a pantalla ===== */
+:root { --navh: 64px; }                  /* alto real del nav (ajustá si cambia) }
+
+/* Fondo 1 (detrás del nav) */
+.site.is-work { position: relative; }
+.site.is-work::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  /* usa --work-bg si está seteada; si no, cae a la imagen por defecto */
+  background-image: var(--work-bg, url("/assets/fondo-1.jpeg"));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 9999px rgba(0,0,0,.12);
+}
+
+/* main sin padding para que los bloques ocupen todo el ancho */
+.site.is-work main{
+  padding: 0;
+  width: 100%;
+}
+
+/* Contenedor de los bloques extra (no necesita estilos especiales) */
+.work-landing{}
+
+/* Bloques extra (fondos 2 y 3) con el mismo alto visual que el primero */
+.work-hero{
+  min-height: calc(100svh - var(--navh));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
+
+/* Fallback para navegadores sin svh */
+@supports not (min-height: 100svh){
+  .work-hero{ min-height: calc(100vh - var(--navh)); }
+}
+
+
+/* Fondo SOLO en Work (Nav + Main + Footer) 
+.site.is-work { position: relative; }       <- corregido: antes decía is-worñ 
 .site.is-work::before {
   content: "";
   position: fixed;
@@ -181,7 +224,7 @@ a:focus-visible{
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: inset 0 0 0 9999px rgba(0,0,0,.12);
-}
+} */
 
 /* Nav y footer translúcidos */
 .nav {

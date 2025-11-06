@@ -39,7 +39,7 @@ function Layout() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
-      {!isSplash && <Footer />}
+      
     </div>
   );
 }
