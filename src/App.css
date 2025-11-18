@@ -43,9 +43,13 @@ main {
   padding: 2rem 1.2rem 4rem; 
 }
 
+
+
+
 .nav {
   position: sticky; 
   top: 0; 
+  z-index: 1000;                       /* por encima de todo */
   backdrop-filter: blur(6px);
   display:flex; 
   justify-content:space-between; 
@@ -176,7 +180,7 @@ a:focus-visible{
   pointer-events: none;
   /* usa --work-bg si está seteada; si no, cae a la imagen por defecto */
   background-image: var(--work-bg, url("/assets/fondo-1.jpeg"));
-  background-size: cover;
+ background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: inset 0 0 0 9999px rgba(0,0,0,.12);
@@ -193,14 +197,13 @@ a:focus-visible{
 
 /* Bloques extra (fondos 2 y 3) con el mismo alto visual que el primero */
 .work-hero{
-  min-height: calc(100svh - var(--navh));
+    min-height: calc(100svh - var(--navh));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   
 }
-
-/* Fallback para navegadores sin svh */
+ Fallback para navegadores sin svh 
 @supports not (min-height: 100svh){
   .work-hero{ min-height: calc(100vh - var(--navh)); }
 }

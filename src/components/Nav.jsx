@@ -5,11 +5,12 @@ export default function Nav() {
     <header className="nav">
       <Link to="/" className="brand">dabhya</Link>
       <nav>
-        <NavLink to="/work">work</NavLink>
-        <NavLink to="/conciertos">conciertos</NavLink>
-        <NavLink to="/retratos">retratos</NavLink>
-        <NavLink to="/experimental">experimental</NavLink>
-        <NavLink to="/contact">contact</NavLink>
+        <NavLink to="/work">inicio</NavLink>
+        <NavLink to="/sesiones">sesiones</NavLink>
+        <NavLink to="/retratos">intimo</NavLink>
+        <NavLink to="/testigo">testigo</NavLink>
+        <NavLink to="/experimental">exploraciones</NavLink>
+        <NavLink to="/contact">contacto</NavLink>
       </nav>
     </header>
   );
