@@ -1,7 +1,7 @@
 export default function Contact() {
   return (
     <section>
-      <h1>Contact</h1>
+      <h1>Contacto</h1>
       <p>
         Escribime a <a href="mailto:hola@dabhya.com">hola@dabhya.com</a> o por IG <a href="https://instagram.com/">@dabhya</a>.
       </p>

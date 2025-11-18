@@ -10,7 +10,7 @@ export default function Nav() {
         <NavLink to="/retratos">intimo</NavLink>
         <NavLink to="/testigo">testigo</NavLink>
         <NavLink to="/experimental">exploraciones</NavLink>
-        <NavLink to="/contact">contacto</NavLink>
+        <NavLink to="/contact">📸</NavLink>
       </nav>
     </header>
   );

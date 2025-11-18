@@ -342,7 +342,7 @@ html, body { width: 100%; overflow-x: hidden; }
 
   /* Espaciado entre títulos (enlaces) del menú */
   .nav a{
-    margin: 0 .75rem .35rem 0; /* derecha + abajo = “aire” entre links */
+    margin: 0 .60rem .35rem 0; /* derecha + abajo = “aire” entre links */
     font-size: clamp(13px, 3.6vw, 16px);
     white-space: nowrap;       /* que cada link no se parta */
   }
