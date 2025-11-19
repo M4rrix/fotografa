@@ -1,8 +1,8 @@
-// src/pages/Conciertos.jsx
+// src/pages/Sesiones.jsx
 import { Link } from "react-router-dom";
 import { sesiones } from "../data/sesiones";
 
-export default function Conciertos() {
+export default function Sesiones() {
   return (
     <section>
       <h1 className="page-title">sesiones</h1>

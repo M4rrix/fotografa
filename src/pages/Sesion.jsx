@@ -1,43 +1,67 @@
+// src/pages/Sesion.jsx
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { sesiones } from "../data/sesiones";
-import GalleryMasonry from "../components/GalleryMasonry"; // tu componente de grilla
+import GalleryMasonry from "../components/GalleryMasonry";
+import Lightbox from "../components/Lightbox";
+import "../styles/Lightbox.css";
 
-export default function Concierto() {
+export default function Sesion() {
   const { slug } = useParams();
-  const c = sesiones.find(x => x.slug === slug);
+  const c = sesiones.find((x) => x.slug === slug);
+
+  const [lbIndex, setLbIndex] = useState(null);
 
   if (!c) {
     return (
-      <section>
-        <h1>Concierto no encontrado</h1>
-        <p className="muted">Revisá el enlace o volvé al listado.</p>
-        <Link to="/sesiones" className="btn">← Volver a Conciertos</Link>
+      <section className="page page--center">
+        <h1 className="project-title">Sesión no encontrada</h1>
+        <Link to="/sesiones" className="btn btn--primary">
+          ← Volver a sesiones
+        </Link>
       </section>
     );
   }
 
+  const handleImageClick = (index) => {
+    setLbIndex(index); // abre el lightbox en esa foto
+  };
+
+  const handleCloseLightbox = () => {
+    setLbIndex(null); // cierra el lightbox
+  };
+
   return (
-
-
     <article className="project is-gallery">
-          {/*<div className="gallery-header">
-            <h1>{c.title}</h1>
-                  <p className="muted">{c.city} · {c.year}</p>
-            </div> */} 
-<div className="project-body">
-  {/* Encabezado arriba y centrado*/}
-  <header className="project-header">
-    <h1 className="project-title">{c.title}</h1>
-    <p className="muted">{c.city} · {c.year}</p>
-  </header>
+      <header className="project-header">
+        <div className="project-header-meta">
+          <Link to="/sesiones" className="back-link">
+            ← Todas las sesiones
+          </Link>
+          <p className="muted">
+            {c.city} · {c.year}
+          </p>
+        </div>
+        <h1 className="project-title">{c.title}</h1>
+        {c.description && (
+          <p className="project-description">{c.description}</p>
+        )}
+      </header>
 
-  <GalleryMasonry images={c.images} altBase={c.title} />
+      <section className="project-gallery">
+        <GalleryMasonry
+          images={c.images}
+          onImageClick={handleImageClick} // 👈 importante
+        />
+      </section>
 
-  <nav className="project-nav">
-    <Link to="/sesiones" className="btn">← Volver</Link>
-  </nav>
-</div>
-      
-      </article>
-);
+      {/* No hace falta chequear hasLightboxOpen, tu Lightbox ya devuelve null si index es null */}
+      <Lightbox
+        images={c.images}
+        index={lbIndex}
+        setIndex={setLbIndex}
+        onClose={handleCloseLightbox}
+      />
+    </article>
+  );
 }
