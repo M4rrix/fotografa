@@ -35,9 +35,9 @@ export default function Sesion() {
     <article className="project is-gallery">
       <header className="project-header">
         <div className="project-header-meta">
-          <Link to="/sesiones" className="back-link">
+         {/* <Link to="/sesiones" className="back-link">
             ← Todas las sesiones
-          </Link>
+          </Link> */} 
           <p className="muted">
             {c.city} · {c.year}
           </p>
