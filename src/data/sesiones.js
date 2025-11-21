@@ -17,7 +17,6 @@ export const sesiones = [
   {
     slug: "1-malagueta",
     title: "Malagueta",
-    year: 2023,
     city: "CABA",
     cover: `${BASE}/1-malagueta/00.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("1-malagueta", 14, "jpg"),
@@ -25,15 +24,15 @@ export const sesiones = [
    {
     slug: "2-ursula-pomelo",
     title: "Ursula Pomelo",
-    year: 2023,
+    
     city: "CABA",
-    cover: `${BASE}/2-ursula-pomelo/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
-    images: genImages("2-ursula-pomelo", 32, "jpg"),
+    cover: `${BASE}/2-ursula-pomelo/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
+    images: genImages("2-ursula-pomelo", 33, "jpg"),
   },
    {
     slug: "3-rayokuza",
     title: "Rayokuza",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/3-rayokuza/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("3-rayokuza", 26, "jpg"),
@@ -41,15 +40,15 @@ export const sesiones = [
   {
     slug: "4-cielo-diaz",
     title: "Cielo Diaz",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/4-cielo-diaz/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("4-cielo-diaz", 12, "jpg"),
   },
     {
     slug: "5-nahuel-souto",
-    title: "Nahuel Soto",
-    year: 2023,
+    title: "Nahuel Souto",
+    
     city: "CABA",
     cover: `${BASE}/5-nahuel-souto/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("5-nahuel-souto", 13, "jpg"),
@@ -57,7 +56,7 @@ export const sesiones = [
   {
     slug: "6-esenarie",
     title: "Esenarie",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/6-esenarie/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("6-esenarie", 36, "jpg"),
@@ -65,7 +64,7 @@ export const sesiones = [
   {
     slug: "7-tripolosky",
     title: "Tripolosky",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/7-tripolosky/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("7-tripolosky", 27, "jpg"),
@@ -73,7 +72,7 @@ export const sesiones = [
    {
     slug: "8-serena",
     title: "Serena",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/8-serena/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("8-serena", 15, "jpg"),
@@ -81,7 +80,7 @@ export const sesiones = [
   {
     slug: "9-jose-masajnik",
     title: "Jose Masajnik",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/9-jose-masajnik/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("9-jose-masajnik", 29, "jpg"),
@@ -89,7 +88,7 @@ export const sesiones = [
    {
     slug: "10-linda",
     title: "Linda",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/10-linda/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("10-linda", 25, "jpg"),
@@ -97,7 +96,7 @@ export const sesiones = [
    {
     slug: "11-dai",
     title: "Dai",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/11-dai/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("11-dai", 11, "jpg"),
@@ -105,15 +104,15 @@ export const sesiones = [
      {
     slug: "12-sofia-aristimuno",
     title: "Sofia Aristimuño",
-    year: 2023,
+    
     city: "CABA",
-    cover: `${BASE}/12-sofia-aristimuno/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
+    cover: `${BASE}/12-sofia-aristimuno/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("12-sofia-aristimuno", 12, "jpg"),
   },
       {
     slug: "13-clara",
     title: "Clara",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/13-clara/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("13-clara", 11, "jpg"),
@@ -121,7 +120,7 @@ export const sesiones = [
        {
     slug: "14-lucas",
     title: "Lucas",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/14-lucas/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("14-lucas", 11, "jpg"),
@@ -129,7 +128,7 @@ export const sesiones = [
        {
     slug: "15-delfinmal-hellocrudo",
     title: "Delfinmal Hellocrudo",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/15-delfinmal-hellocrudo/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("15-delfinmal-hellocrudo", 10, "jpg"),
@@ -137,7 +136,7 @@ export const sesiones = [
       {
     slug: "15-matt",
     title: "Matt",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/15-matt/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("15-matt", 16, "jpg"),
@@ -145,7 +144,7 @@ export const sesiones = [
       {
     slug: "16-duomelis",
     title: "Duomelis",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/16-duomelis/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("16-duomelis", 18, "jpg"),
@@ -153,7 +152,7 @@ export const sesiones = [
         {
     slug: "17-ceci-sierra",
     title: "Ceci Sierra",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/17-ceci-sierra/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("17-ceci-sierra", 10, "jpg"),
@@ -161,7 +160,7 @@ export const sesiones = [
          {
     slug: "18-infotrabajo",
     title: "Infotrabajo",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/18-infotrabajo/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("18-infotrabajo", 15, "jpg"),
@@ -169,7 +168,7 @@ export const sesiones = [
            {
     slug: "19-vey",
     title: "Vey",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/19-vey/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("19-vey", 18, "jpg"),
@@ -177,7 +176,7 @@ export const sesiones = [
             {
     slug: "20-zaguataes",
     title: "Zaguates",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/20-zaguates/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("20-zaguates", 19, "jpg"),
@@ -185,7 +184,7 @@ export const sesiones = [
            {
     slug: "21-le-morte",
     title: "Le Morte",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/21-le-morte/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("21-le-morte", 7, "jpg"),
@@ -193,7 +192,7 @@ export const sesiones = [
             {
     slug: "22-planeta-azul",
     title: "Planeta Azul",
-    year: 2023,
+    
     city: "CABA",
     cover: `${BASE}/22-planeta-azul/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("22-planeta-azul", 3, "jpg"),

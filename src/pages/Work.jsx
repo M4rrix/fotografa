@@ -9,7 +9,7 @@ export default function Work() {
 
     // Activa “modo Work” y setea la 1ª imagen (la que se ve detrás del nav)
     site.classList.add("is-work");
-    site.style.setProperty("--work-bg", `url('/assets/fondo-1.jpg')`);
+    site.style.setProperty("--work-bg", `url('/assets/inicio/1-pagina.jpg')`);
 
     return () => {
       site.classList.remove("is-work");
@@ -19,9 +19,10 @@ export default function Work() {
 
   // Las otras dos imágenes, del mismo tamaño/formato que la primera
   const moreHeros = [
-    "/assets/fondo-1.jpeg",
-    "/assets/fondo-2.jpeg",
-    "/assets/fondo-3.jpeg",
+    "/assets/inicio/1-pagina.jpg",
+    "/assets/inicio/2-pagina.jpg",
+    "/assets/inicio/3-pagina.jpg",
+    "/assets/inicio/4-pagina.jpg",
   ];
 
   return (
