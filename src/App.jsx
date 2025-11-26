@@ -32,6 +32,16 @@ function Layout() {
   const isSplash = pathname === "/";
   const isWork = pathname.startsWith("/work");
 
+
+//BLOQUE PARA EL FONDO SI VOLVEMOS TODO ATRAS LO BORRO Y LISTO
+const isGalleryPage =
+    pathname.startsWith("/sesiones/") ||
+    pathname.startsWith("/intimo/") ||
+    pathname.startsWith("/testigo/") ||
+
+
+
+
     // 👇 BLOQUE NUEVO: desactivar menú botón derecho en todo el sitio
   useEffect(() => {
     const handleContextMenu = (e) => {

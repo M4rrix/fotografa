@@ -1,12 +1,22 @@
-# React + Vite
+CAMBIOS ESTETICOS EN EL FONDO:
+En App.jsx agregue el bloque:
+const isGalleryPage =
+    pathname.startsWith("/sesiones/") ||
+    pathname.startsWith("/intimo/") ||
+    pathname.startsWith("/testigo/") ||
+    
+Si volvemos para atras con solo el fondo blanco, lo borro y listo. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En App.css agregue desde la linea 44 a la 86 todo el nuevo bloque para el diseño del fondo y tambien en el bloque 
+26 cambie el background:
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  background:
+   radial-gradient(circle at top, #101018 0, #050509 55%, #020203 100%);
+  color: #f5f5f5;
+  /*background: var(--bg); 
+  color: var(--fg);   --> FONDO ANTERIOR PARA QUE SEA BLANCO*/
+} 
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Lo que pienso tambien es que puede quedar copado tambien, con el fondo en blanco. Hay que ir probando.
