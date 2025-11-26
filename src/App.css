@@ -1,0 +1,435 @@
+:root{
+  --bg:#fff; 
+  --fg:#0a0a0a; 
+  --muted:#8a8a8a; 
+  --accent:#0df;
+  --maxw:1100px; 
+  --radius:16px; 
+  --gap:18px;
+   --link: #000;      /* tu color */
+  --link-hover: #4a3aff; /* hover */
+}
+h1,h2,h3 {
+   font-family:"Space Grotesk", system-ui; 
+   letter-spacing:.005em 
+  }
+body { 
+  font-family: Inter, system-ui; 
+}
+.page-title{ 
+  font-size: clamp(2rem, 3.5vw, 3rem); 
+  margin: 0 0 1rem 
+}
+a { text-underline-offset: 3px; }
+
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0; 
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg); 
+  color: var(--fg);
+}
+
+.site { 
+  display: grid; 
+  grid-template-rows: auto 1fr auto; 
+  min-height: 100%; 
+}
+main { 
+  width: min(100%, var(--maxw)); 
+  margin: 0 auto; 
+  padding: 2rem 1.2rem 4rem; 
+}
+
+
+
+
+.nav {
+  position: sticky; 
+  top: 0; 
+  z-index: 1000;                       /* por encima de todo */
+  backdrop-filter: blur(6px);
+  display:flex; 
+  justify-content:space-between; 
+  align-items:center;
+  padding: 1rem 1.2rem; 
+  border-bottom: 1px solid #eee; 
+  background: color-mix(in oklab, white 80%, transparent);
+}
+.nav a { 
+  color: var(--fg); 
+  text-decoration: none; 
+  margin-left: 1rem; 
+}
+
+a{
+  color: var(--fg, #0a0a0a);   /* negro del sistema o fallback */
+  text-decoration: none;       /* sin subrayado por defecto */
+}
+
+
+a:hover{
+  text-decoration: underline;  /* aparece la línea en hover */
+  text-underline-offset: 2px;  /* separada del texto */
+  text-decoration-thickness: 1px;
+}
+
+/* Accesibilidad */
+a:focus-visible{
+  outline: 2px dashed currentColor;
+  outline-offset: 3px;
+}
+
+
+
+.brand { font-weight: 700; letter-spacing: .02em; }
+
+.home .hero-title { font-size: clamp(2.8rem, 4vw, 6rem); line-height: .95; margin: 2rem 0 .5rem; }
+.thin { font-weight: 300; color: var(--muted); }
+.hero-sub { color: var(--muted); margin-bottom: 1.5rem; }
+.btn {
+  display:inline-block; border:1px solid var(--fg); padding:.75rem 1rem; border-radius:999px;
+  text-decoration:none; color:var(--fg);
+}
+.btn:hover { background: var(--fg); color: var(--bg); }
+
+
+.grid {
+  margin-top: 3rem;
+  display: grid; gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+.card { position: relative; overflow: hidden; border-radius: 14px; }
+.card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+.card:hover img { transform: scale(1.04); }
+.card-caption {
+  position:absolute; inset:auto 10px 10px 10px; background: color-mix(in oklab, #000 30%, transparent);
+  color:#fff; padding:.45rem .6rem; border-radius: 999px; font-size:.85rem; letter-spacing:.02em;
+}
+
+/* Grid de proyectos */
+.work-grid{
+  list-style:none; padding:0; margin:2rem 0;
+  display:grid; gap: var(--gap);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+.work-item .ratio{ aspect-ratio: 16/10; overflow:hidden;  background:#eee; }
+.work-item img{ width:100%; height:100%; object-fit:cover; transition: transform .5s ease; display:block; }
+.card:hover img{ transform: scale(1.03); }
+.meta{ display:flex; justify-content:space-between; margin-top:.6rem; }
+.muted{ color:var(--muted); }
+
+/* Página de proyecto tipo editorial */
+.project { 
+  display:grid; 
+  grid-template-columns: 320px 1fr; 
+  gap: 24px; 
+  align-items:start; 
+}
+.project-aside { 
+  position:sticky; 
+  top:84px; 
+}
+
+.project-aside h1 { 
+  font-size: clamp(1.6rem, 3vw, 2.6rem); 
+  margin:.2rem 0 .5rem 
+}
+.tags { display:flex; gap:.5rem; list-style:none; padding:0; margin: .6rem 0 0; }
+.tags li{ font-size:.85rem; color:var(--muted); border:1px solid #eee; padding:.2rem .5rem; border-radius:999px; }
+
+.project-body > img{
+  width:100%;
+  height:auto;
+  margin: 0 0 var(--gap);
+  display:block;
+}
+
+.project .carousel{
+  height: calc(100svh - 140px);
+}
+@supports not (height: 100svh){
+  .project .carousel{ height: calc(100vh - 140px); }
+}
+
+/* El track y cada slide ocupan ese alto y centran el contenido */
+.project .carousel-track{
+  height: 100%;
+  align-items: center;
+}
+.carousel-slide{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-nav{ display:flex; justify-content:space-between; gap:12px; margin-top:1rem; }
+
+/* ===== Work: fondos a pantalla ===== */
+:root { --navh: 64px; }                  /* alto real del nav (ajustá si cambia) }
+
+/* Fondo 1 (detrás del nav) */
+.site.is-work { position: relative; }
+.site.is-work::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  /* usa --work-bg si está seteada; si no, cae a la imagen por defecto */
+  background-image: var(--work-bg, url("/assets/fondo-1.jpeg"));
+ background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 9999px rgba(0,0,0,.12);
+}
+
+/* main sin padding para que los bloques ocupen todo el ancho */
+.site.is-work main{
+  padding: 0;
+  width: 100%;
+}
+
+/* Contenedor de los bloques extra (no necesita estilos especiales) */
+.work-landing{}
+
+/* Bloques extra (fondos 2 y 3) con el mismo alto visual que el primero */
+.work-hero{
+    min-height: calc(100svh - var(--navh));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
+ Fallback para navegadores sin svh 
+@supports not (min-height: 100svh){
+  .work-hero{ min-height: calc(100vh - var(--navh)); }
+}
+
+
+/* Fondo SOLO en Work (Nav + Main + Footer) 
+.site.is-work { position: relative; }       <- corregido: antes decía is-worñ 
+.site.is-work::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  background-image: image-set(
+    url("/assets/bg/bg.jpeg") type("image/jpeg")
+  );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 9999px rgba(0,0,0,.12);
+} */
+
+/* Nav y footer translúcidos */
+.nav {
+  backdrop-filter: blur(6px);
+  background: color-mix(in oklab, white 82%, transparent);
+  border-bottom: 1px solid #eee;
+}
+footer {
+  background: color-mix(in oklab, white 85%, transparent);
+  border-top: 1px solid #eee;
+}
+
+.home .hero-title, .home .hero-sub { text-shadow: 0 2px 20px rgba(0,0,0,.25); }
+
+@media (max-width: 768px){
+  .site.is-work::before { box-shadow: inset 0 0 0 9999px rgba(0,0,0,.08); }
+
+  /* Project en mobile: sin grid ni sticky */
+  .project{ display:block; }
+  .project-aside{ position: static; top:auto; margin-bottom: 1rem; }
+  .project-body img{ width:100%; height:auto; display:block; }
+}
+
+/* Carrusel */
+.carousel { position: relative; }
+.carousel-track{
+  display: grid;
+ /* grid-auto-flow: column;*/ 
+  grid-auto-columns: 100%;
+  gap: var(--gap); 
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.carousel-track::-webkit-scrollbar{ display: none; }
+
+.carousel-slide{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Flechas laterales + contador */
+.carousel-ui{
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 10px; pointer-events: none;
+}
+.carousel-ui .nav{
+  pointer-events: auto; border:1px solid #ddd; border-radius:999px;
+  padding:.55rem .75rem; background: color-mix(in oklab, #fff 78%, transparent);
+  backdrop-filter: blur(6px); cursor:pointer; user-select:none;
+}
+.carousel-ui .counter{
+  position:absolute; left:50%; bottom:12px; transform:translateX(-50%);
+  font-size:.9rem; color:var(--muted); padding:.3rem .6rem; border-radius:999px;
+  background: color-mix(in oklab, #fff 75%, transparent);
+}
+@media (max-width:768px){ .carousel-ui .nav{ display:none; } }
+
+/* Opcional: esconder flechas en mobile y dejar solo swipe 
+@media (max-width: 768px){
+  .carousel-ui .nav{ display: none; }
+} */
+
+
+/* Mobile: tu layout ya apila; el carrusel funciona con swipe */
+@media (max-width: 768px){
+  .project{ display: block; }           /* ya lo tenés */
+  .project-aside{ position: static; margin-bottom: 1rem; }
+}
+
+.carousel-slide a {
+  display: block;              /* el link ocupa el slide completo */
+  
+  overflow: hidden;
+}
+/* Imágenes dentro del carrusel: sin márgenes heredados y “contain” */
+.carousel-slide img{
+  margin: 0 !important;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;   /* horizontales también entran, sin recorte */
+  display: block;
+}
+
+
+footer { border-top: 1px solid #eee; padding: 1.2rem; text-align: center; color: var(--muted); }
+
+/* iOS no auto-escala textos */
+html { -webkit-text-size-adjust: 100%; }
+
+/* Medios seguros */
+img, video, canvas, svg { max-width: 100%; height: auto; }
+
+/* Seguridad extra: nada más ancho que la pantalla */
+html, body { width: 100%; overflow-x: hidden; }
+
+/* ===== NAV responsive (mobile) ===== */
+@media (max-width: 560px){
+  .nav{
+    flex-wrap: wrap;           /* permite saltar de línea */
+    padding: .75rem .9rem;
+  }
+
+  /* la marca queda a la izquierda y el resto puede bajar de línea */
+  .brand{ margin-right: auto; }
+
+  /* Espaciado entre títulos (enlaces) del menú */
+  .nav a{
+    margin: 0 .60rem .35rem 0; /* derecha + abajo = “aire” entre links */
+    font-size: clamp(13px, 3.6vw, 16px);
+    white-space: nowrap;       /* que cada link no se parta */
+  }
+}
+
+/* ===== Galería tipo masonry (scroll vertical) ===== */
+.gallery-masonry{
+  column-gap: var(--gap);
+  /* cantidad de columnas según ancho */
+  column-count: 1;
+}
+
+@media (min-width: 640px){
+  .gallery-masonry{ column-count: 2; }
+}
+@media (min-width: 980px){
+  .gallery-masonry{ column-count: 3; }
+}
+@media (min-width: 1280px){
+  .gallery-masonry{ column-count: 4; } /* opcional */
+}
+
+.gm-item{
+  break-inside: avoid;      /* que las fotos no se corten entre columnas */
+  margin: 0 0 var(--gap);   /* separación vertical */
+}
+
+.gm-item img{
+  width: 100%;
+  height: auto;
+  display: block;
+ 
+}
+
+/* Vista de galería: usar todo el ancho del main (sin aside) */
+/* ==== Galería "full-bleed" (a ancho de ventana) ==== */
+/* Hace que solo la grilla se salga del max-width de <main>,
+   manteniendo el título centrado dentro del layout normal */
+.project.is-gallery .gallery-wrap{
+  width: 100vw;                          /* ocupar ancho de viewport */
+  margin-left: calc(50% - 50vw);         /* hack para romper el contenedor centrado */
+  padding-inline: clamp(12px, 4vw, 36px);/* respiración lateral segura */
+}
+
+/* 3 columnas en desktop (con masonry nativo por columnas) */
+.project.is-gallery .gallery-masonry{
+  column-count: 3;                        /* -> tres columnas */
+  column-gap: var(--gap);
+}
+
+/* Cada item evita cortarse entre columnas */
+.project.is-gallery .gallery-item{
+  break-inside: avoid;
+  margin-bottom: var(--gap);
+}
+.project.is-gallery .gallery-item img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;                    /* opcional */
+}
+
+/* Responsivo: 2 cols en tablet, 1 col en mobile */
+@media (max-width: 1100px){
+  .project.is-gallery .gallery-masonry{ column-count: 2; }
+}
+@media (max-width: 600px){
+  .project.is-gallery .gallery-masonry{ column-count: 1; }
+  .project.is-gallery .gallery-wrap{ padding-inline: 16px; }
+}
+
+/* Título centrado por encima de la grilla */
+.project.is-gallery .project-header{
+  text-align: center;
+  margin: 0 0 1.25rem;
+}
+.project.is-gallery .project-title{
+  margin: 0 0 .25rem;
+  font-size: clamp(1.8rem, 3.8vw, 3rem);
+  line-height: 1.05;
+}
+
+/* Que esta página no use la sidebar */
+.project.is-gallery{
+  grid-template-columns: 1fr;
+}
+.project.is-gallery .project-aside{ display: none; }
+
+
+

@@ -1,0 +1,70 @@
+/* Splash sin fondo negro y con crossfade continuo */
+.splash {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.splash .slides { position: absolute; inset: 0; }
+.splash .slide{
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  opacity: 0;
+  animation: fadeCycle 5s infinite; /* 3 imgs x 3s */ /*antes estaba en  9s*/
+  will-change: opacity;
+}
+
+/* La primera slide arranca visible inmediatamente gracias al keyframe y sin negro */
+@keyframes fadeCycle {
+  0%   { opacity: 1; }   /* visible al inicio */
+  30%  { opacity: 1; }   /* ~3s x slide */
+  33%  { opacity: 0; }   /* crossfade corto */
+  97%  { opacity: 0; }
+  100% { opacity: 1; }   /* para el loop suave */
+}
+
+/* Marca minimal clickeable arriba a la izquierda 
+.splash-brand{
+  position: fixed; top: 24px; left: 24px;
+  font-family: "Space Grotesk", system-ui;
+  font-weight: 700; letter-spacing: .04em; 
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: #fff; text-decoration: none;
+  text-shadow: 0 2px 18px rgba(0,0,0,.45);
+  mix-blend-mode: difference;
+} */
+
+/* Marca centrada en el splash */
+.splash-brand{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  font-family: "Space Grotesk", system-ui;
+  font-weight: 700;
+  letter-spacing: .04em;
+  
+  font-size: clamp(1.4rem, 4.5vw, 2.8rem);
+
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 2px 18px rgba(0,0,0,.45);
+  mix-blend-mode: difference;          /* mantiene contraste en fondos claros/osc */
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.splash-brand:hover {
+  opacity: .9;
+  transform: translate(-50%, -50%) scale(1.02);
+}
+
+.splash-brand:focus-visible{
+  outline: 2px solid #fff;
+  outline-offset: 6px;
+  border-radius: 6px;
+}
+
+/* Evita scroll detrás */
+main.full { padding: 0; }
