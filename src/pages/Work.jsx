@@ -17,7 +17,7 @@ export default function Work() {
     };
   }, []);
 
-  // Las otras dos imágenes, del mismo tamaño/formato que la primera
+  // Las otras imágenes, del mismo tamaño/formato que la primera
   const moreHeros = [
     "/assets/inicio/1-pagina.jpg",
     "/assets/inicio/2-pagina.jpg",

@@ -1,12 +1,26 @@
-export default function Contact() {
+// src/pages/Contacto.jsx
+import { useEffect } from "react";
+import "../styles/Contacto.css";
+
+const CONTACT_BG = "/assets/inicio/4-pagina.jpg"; // tu imagen
+
+export default function Contacto() {
+  useEffect(() => {
+    const site = document.querySelector(".site");
+    if (!site) return;
+
+    site.classList.add("is-contact"); // para estilos especiales
+
+    return () => {
+      site.classList.remove("is-contact");
+    };
+  }, []);
+
   return (
-    <section>
-      <h1>Contacto</h1>
-      <p>
-        Escribime a <a href="mailto:hola@dabhya.com">hola@dabhya.com</a> o por IG <a href="https://instagram.com/">@dabhya</a>.
-        Agregar un footer con un contacto mio para promocionar la pagina
-      </p>
-      {/* Luego sumamos formulario con SMTP propio */}
-    </section>
+    <section
+      className="contact-hero"
+      aria-label="Contacto"
+      style={{ backgroundImage: `url('${CONTACT_BG}')` }}
+    />
   );
 }

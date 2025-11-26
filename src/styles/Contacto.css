@@ -1,0 +1,15 @@
+/* La app en modo contacto ocupa exactamente una pantalla y no scrollea */
+.site.is-contact {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* La imagen de contacto llena toda la ventana y va DETRÁS del nav */
+.contact-hero {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1; /* queda por debajo del nav y del contenido */
+}
