@@ -18,6 +18,8 @@ export default function GalleryMasonry({
             loading="lazy"
             decoding="async"
             className={onImageClick ? "click-zoom" : undefined} // 👈 cursor de zoom
+            onContextMenu={(e) => e.preventDefault()} // no “guardar imagen como”
+            draggable="false"                          // no arrastrar a escritorio
           />
         </figure>
       ))}
