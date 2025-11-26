@@ -9,7 +9,7 @@ export default function Contacto() {
     const site = document.querySelector(".site");
     if (!site) return;
 
-    site.classList.add("is-contact"); // para estilos especiales
+    site.classList.add("is-contact");
 
     return () => {
       site.classList.remove("is-contact");

@@ -45,7 +45,7 @@ export default function Lightbox({ images = [], index, setIndex, onClose }) {
       )}
 
       <figure className="lb-figure" onClick={(e) => e.stopPropagation()}>
-        <img src={src} alt="" className="lb-img" />
+        <img src={src} alt="" className="lb-img" draggable="false" /> {/*// 👈 no arrastrar */}
         <figcaption className="lb-cap">{index + 1} / {images.length}</figcaption>
       </figure>
     </div>

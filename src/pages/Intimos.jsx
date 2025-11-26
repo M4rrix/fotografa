@@ -18,6 +18,7 @@ export default function Intimos() {
                   loading="lazy"
                   width="1600"
                   height="1000"
+                  draggable="false" 
                   onError={(e) => {
                     e.currentTarget.src = `https://picsum.photos/seed/${c.slug}/1600/15.jpg`;
                   }}

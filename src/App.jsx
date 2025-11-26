@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation, Navigate, useParams } from "react-router-dom";
 import Nav from "./components/Nav";
 // import Footer from "./components/Footer";
@@ -30,6 +31,19 @@ function Layout() {
   const { pathname } = useLocation();
   const isSplash = pathname === "/";
   const isWork = pathname.startsWith("/work");
+
+    // 👇 BLOQUE NUEVO: desactivar menú botón derecho en todo el sitio
+  useEffect(() => {
+    const handleContextMenu = (e) => {
+      e.preventDefault();
+    };
+
+    document.addEventListener("contextmenu", handleContextMenu);
+    return () => {
+      document.removeEventListener("contextmenu", handleContextMenu);
+    };
+  }, []);
+  // ☝️ hasta acá
 
   return (
     <div className={`site ${isSplash ? "is-landing" : ""} ${isWork ? "is-work" : ""}`}>
