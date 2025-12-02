@@ -1,11 +1,28 @@
+// src/components/Footer.jsx
 export default function Footer() {
   return (
-    <section>
-      <h1>Contact</h1>
+    <footer className="footer">
       <p>
-        Escribime a <a href="mailto:hola@dabhya.com">hola@dabhya.com</a> o por IG <a href="https://instagram.com/">@dabhya</a>.
+        copyright ©{" "}
+        <a
+          href="https://www.instagram.com/dabhya/"
+          target="_blank"
+          rel="noreferrer"
+          className="footer-link"
+        >
+          dabhya
+        </a>
+        {" | "}
+        diseño y creación web x{" "}
+        <a
+          href="https://www.instagram.com/m4rrix/"
+          target="_blank"
+          rel="noreferrer"
+          className="footer-link"
+        >
+          m4rrix
+        </a>
       </p>
-      {/* Luego sumamos formulario con SMTP propio */}
-    </section>
+    </footer>
   );
 }

@@ -8,13 +8,12 @@ const pad = (n) => String(n).padStart(2, "0");
 
 // genera /assets/35mm/01.jpg ... /assets/35mm/40.jpg
 const images35mm = Array.from(
-  { length: 41 }, // 👉 cantidad de fotos
+  { length: 44 }, // 👉 cantidad de fotos
   (_, i) => `${BASE}/${pad(i + 1)}.jpg`
 );
 
 export const experimental = {
-  title: "35MM",       // idem
-  description: "Serie en película 35mm.",
+  title: "35MM",
   images: images35mm,
 };
 

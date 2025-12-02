@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation, Navigate, useParams } from "react-router-dom";
 import Nav from "./components/Nav";
-// import Footer from "./components/Footer";
+ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Work from "./pages/Work";
 import Project from "./pages/Project";
@@ -31,6 +31,7 @@ function Layout() {
   const { pathname } = useLocation();
   const isSplash = pathname === "/";
   const isWork = pathname.startsWith("/work");
+  const isContact = pathname === "/contact"; // para no mostrar footer ahí
 
 
 //BLOQUE PARA EL FONDO SI VOLVEMOS TODO ATRAS LO BORRO Y LISTO
@@ -40,7 +41,7 @@ const isGalleryPage =
     pathname.startsWith("/testigo/") ||
 
 
-
+{/* 
 
     // 👇 BLOQUE NUEVO: desactivar menú botón derecho en todo el sitio
   useEffect(() => {
@@ -54,6 +55,7 @@ const isGalleryPage =
     };
   }, []);
   // ☝️ hasta acá
+  */}
 
   return (
     <div className={`site ${isSplash ? "is-landing" : ""} ${isWork ? "is-work" : ""}`}>
@@ -84,7 +86,7 @@ const isGalleryPage =
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
-      {/* {!isSplash && <Footer />} */}
+      {!isSplash && <Footer />}
     </div>
   );
 }

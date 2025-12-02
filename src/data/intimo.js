@@ -16,50 +16,43 @@ export const intimo = [
   {
     slug: "1-un-espacio-para-soñar-tranquila",
     title: "Un espacio para soñar tranquila",
-    city: "CABA",
     cover: `${BASE}/1-un-espacio-para-soñar-tranquila/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("1-un-espacio-para-soñar-tranquila", 26, "jpg"),
   },
    {
     slug: "2-cartografías-latinoamericanas",
     title: "Cartografías Latinoamericanas",
-    city: "CABA",
     cover: `${BASE}/2-cartografías-latinoamericanas/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("2-cartografías-latinoamericanas", 18, "jpg"),
   },
   {
     slug: "3-atlantico-sur-2025",
     title: "Atlántico Sur",
-    city: "CABA",
     cover: `${BASE}/3-atlantico-sur-2025/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("3-atlantico-sur-2025", 12, "jpg"),
   },
    {
     slug: "4-viaje-interior-l-20-21-22",
-    title: "Viaje Interior",
-    city: "CABA",
+    title: "Viaje Interior I 20-21-22",
     cover: `${BASE}/4-viaje-interior-l-20-21-22/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
-    images: genImages("4-viaje-interior-l-20-21-22", 24, "jpg"),
+    images: genImages("4-viaje-interior-l-20-21-22", 25, "jpg"),
   },
     {
     slug: "5-lejanamentecerca",
     title: "Lejanamentecerca",
-    city: "CABA",
     cover: `${BASE}/5-lejanamentecerca/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("5-lejanamentecerca", 25, "jpg"),
   },
   {
     slug: "6-universo-corporal",
     title: "Universo Corporal",
-    city: "CABA",
     cover: `${BASE}/6-universo-corporal/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
-    images: genImages("6-universo-corporal", 25, "jpg"),
+    images: genImages("6-universo-corporal", 24, "jpg"),
   },
   {
     slug: "7-magma",
     title: "Magma",
-    city: "CABA",
     cover: `${BASE}/7-magma/01.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
-    images: genImages("7-magma", 29, "jpg"),
+    images: genImages("7-magma", 30, "jpg"),
   },
 ];

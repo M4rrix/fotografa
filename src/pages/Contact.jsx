@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import "../styles/Contacto.css";
 
-const CONTACT_BG = "/assets/inicio/4-pagina.jpg"; // tu imagen
+const CONTACT_BG = "/assets/contacto.jpg"; // imagen
 
 export default function Contacto() {
   useEffect(() => {

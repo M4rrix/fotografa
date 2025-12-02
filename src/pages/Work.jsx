@@ -22,7 +22,9 @@ export default function Work() {
     "/assets/inicio/1-pagina.jpg",
     "/assets/inicio/2-pagina.jpg",
     "/assets/inicio/3-pagina.jpg",
-    "/assets/inicio/4-pagina.jpg",
+     "/assets/inicio/4-pagina.jpg",
+    "/assets/inicio/5-pagina.jpg",
+    
   ];
 
   return (
