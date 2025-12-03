@@ -101,7 +101,7 @@ export const sesiones = [
   }, 
   {
     slug: "ernestina",
-    title: "Hernestina",
+    title: "Ernestina",
     cover: `${BASE}/ernestina/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
     images: genImages("ernestina", 10, "jpg"),
   }, 
@@ -109,7 +109,7 @@ export const sesiones = [
     slug: "lourdes",
     title: "Lourdes",
     cover: `${BASE}/lourdes/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
-    images: genImages("13-clara", 13, "jpg"),
+    images: genImages("lourdes", 13, "jpg"),
   }, 
  {
     slug: "victoria",

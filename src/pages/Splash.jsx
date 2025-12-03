@@ -1,5 +1,5 @@
 // src/pages/Splash.jsx
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const slides = [
   "/assets/portada/port1.jpg",
@@ -8,15 +8,23 @@ const slides = [
   "/assets/portada/port4.jpg",
 ];
 
-const PER = 3;                                // 3 segundos por foto
-const TOTAL = slides.length * PER;            // duración total del ciclo
+const PER = 3;                     // 3 segundos por foto
+const TOTAL = slides.length * PER; // duración total del ciclo
 
 export default function Splash() {
+  const navigate = useNavigate();
+
+  const handleEnter = () => {
+    // aca pongo para clickear y que lleve al inicio
+    navigate("/work"); // aca pongo la ruta que quiero que aterrice
+  };
+
   return (
     <div
       className="splash"
+      onClick={handleEnter} // click en cualquier parte parar entrar
       style={{
-        backgroundImage: `url(${slides[0]})`, // fondo visible instantáneamente
+        backgroundImage: `url(${slides[0]})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -28,22 +36,22 @@ export default function Splash() {
             className="slide"
             style={{
               backgroundImage: `url(${src})`,
-              animationDelay: `${i * PER}s`,      // desfase de 3s por foto
-              animationDuration: `var(--total)`,  // todo el ciclo
+              animationDelay: `${i * PER}s`,
+              animationDuration: `var(--total)`,
             }}
             aria-hidden="true"
           />
         ))}
       </div>
 
-      <Link to="/work" className="splash-brand">dabhya</Link>
+      {/* el link sigue funcionando, pero no dispara el click del fondo */}
+      <Link
+        to="/work"
+        className="splash-brand"
+        onClick={(e) => e.stopPropagation()} // para que no corra handleEnter dos veces
+      >
+        dabhya
+      </Link>
     </div>
   );
 }
-
-
-//QUE TODAS LAS IMAGENES DUREN 3 SEGUNDOS 👌
-
-//HACER ZOOM A LAS FOTOS o sea el click
-
-//CERRAR 28
