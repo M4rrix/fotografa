@@ -41,9 +41,9 @@ const isGalleryPage =
     pathname.startsWith("/testigo/") ||
 
 
-{/* 
 
-    // 👇 BLOQUE NUEVO: desactivar menú botón derecho en todo el sitio
+
+    // BLOQUE NUEVO: desactivar menú botón derecho en todo el sitio
   useEffect(() => {
     const handleContextMenu = (e) => {
       e.preventDefault();
@@ -54,8 +54,8 @@ const isGalleryPage =
       document.removeEventListener("contextmenu", handleContextMenu);
     };
   }, []);
-  // ☝️ hasta acá
-  */}
+  //  hasta acá
+  
 
   return (
     <div className={`site ${isSplash ? "is-landing" : ""} ${isWork ? "is-work" : ""}`}>
