@@ -191,7 +191,7 @@ export const sesiones = [
     slug: "24-study",
     title: "Study",
     cover: `${BASE}/24-study/0.jpg`,   // usa cover.jpg (o duplica 01.jpg con ese nombre)
-    images: genImages("24-study", 11, "jpg"),
+    images: genImages("24-study", 28, "jpg"),
   }, 
 
            {
