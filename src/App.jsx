@@ -45,14 +45,14 @@ function Layout() {
   const isContact = pathname === "/contact";
 
   // bloqueo del clic derecho
-  /*
+  
   useEffect(() => {
     const handleContextMenu = (e) => {
       e.preventDefault();
     };
     document.addEventListener("contextmenu", handleContextMenu);
     return () => document.removeEventListener("contextmenu", handleContextMenu);
-  }, []); */
+  }, []); 
 
   return (
     <div className={`site ${isSplash ? "is-landing" : ""} ${isWork ? "is-work" : ""}`}>
