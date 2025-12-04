@@ -16,9 +16,9 @@ export default function Sesion() {
     return (
       <section className="page page--center">
         <h1 className="project-title">Sesión no encontrada</h1>
-        <Link to="/sesiones" className="btn btn--primary">
+    { /* <Link to="/sesiones" className="btn btn--primary">
           ← Volver a sesiones
-        </Link>
+        </Link>*/}
       </section>
     );
   }

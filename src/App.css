@@ -369,11 +369,11 @@ img {
   .project-body img{ width:100%; height:auto; display:block; }
 }
 
-/* Carrusel */
+/* Carrusel 
 .carousel { position: relative; }
 .carousel-track{
   display: grid;
- /* grid-auto-flow: column;*/ 
+ /* grid-auto-flow: column;
   grid-auto-columns: 100%;
   gap: var(--gap); 
   overflow-x: auto;
@@ -390,7 +390,7 @@ img {
   justify-content: center;
 }
 
-/* Flechas laterales + contador */
+/* Flechas laterales + contador 
 .carousel-ui{
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: space-between;

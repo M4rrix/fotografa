@@ -7,13 +7,7 @@ export default function Carousel({ images = [], altBase = "Foto", fullscreen = f
   const [index, setIndex] = useState(0);
   const galleryId = useId();
 
-  const scrollTo = (i) => {
-    const t = trackRef.current;
-    const slide = t?.children?.[i];
-    if (slide) slide.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-  };
-  const prev = () => scrollTo(Math.max(index - 1, 0));
-  const next = () => scrollTo(Math.min(index + 1, images.length - 1));
+ 
 
   useEffect(() => {
     const root = trackRef.current;

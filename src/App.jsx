@@ -7,7 +7,7 @@ import {
   Navigate,
   useParams,
 } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
@@ -44,35 +44,15 @@ function Layout() {
   const isWork = pathname.startsWith("/work");
   const isContact = pathname === "/contact";
 
-  // guardamos la posición de scroll por ruta
-  const scrollPositions = useRef({});
-
-  // desactivar menú botón derecho en todo el sitio
+  // bloqueo del clic derecho
+  /*
   useEffect(() => {
     const handleContextMenu = (e) => {
       e.preventDefault();
     };
-
     document.addEventListener("contextmenu", handleContextMenu);
-    return () => {
-      document.removeEventListener("contextmenu", handleContextMenu);
-    };
-  }, []);
-
-  // recordar la posición de scroll por ruta
-  useEffect(() => {
-    const saved = scrollPositions.current[pathname];
-
-    if (typeof saved === "number") {
-      window.scrollTo(0, saved);
-    } else {
-      window.scrollTo(0, 0); // primera vez en esta ruta
-    }
-
-    return () => {
-      scrollPositions.current[pathname] = window.scrollY;
-    };
-  }, [pathname]);
+    return () => document.removeEventListener("contextmenu", handleContextMenu);
+  }, []); */
 
   return (
     <div className={`site ${isSplash ? "is-landing" : ""} ${isWork ? "is-work" : ""}`}>
@@ -109,10 +89,7 @@ function Layout() {
         </Routes>
       </main>
 
-      {/* si querés que Contact no tenga scroll ni footer, dejalo así */}
       {!isSplash && !isContact && <Footer />}
-      {/* si preferís footer también en Contact, cambiá por:
-          {!isSplash && <Footer />} */}
     </div>
   );
 }
